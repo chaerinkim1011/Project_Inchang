@@ -8,34 +8,26 @@ public class PlayerMove : MonoBehaviour
     public float PleyeJump = 1f;
     private float MaxSpeed = 10f;
     private float MaxJump = 15f;
-    Vector3 PleyerVector;
-    private void Move()
-    {
-        Vector3 MoveVector = Vector3.zero;
-        if (Input.GetKey(KeyCode.D))
-        {
-            
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            
-        }
-    }
-    private void Jump()
-    {
-
-    }
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
     }
-    // Update is called once per frame
     private void FixedUpdate()
     {
-        Move();
-        Jump();
+        float h = Input.GetAxisRaw("Horizontal"); //키입력
+        rb.AddForce(Vector2.right * h, ForceMode2D.Impulse); //키 입력에 따른 이동
+        if (rb.linearVelocity.x > MaxSpeed) //오른쪽 최대속도 조절
+        {
+            rb.linearVelocity = new Vector2(MaxSpeed, rb.linearVelocity.y);
+        }
+        else if (rb.linearVelocity.x < MaxSpeed * (-1))
+        {
+            rb.linearVelocity = new Vector2(MaxSpeed * (-1), rb.linearVelocity.y);
+        }
     }
+    // Update is called once per frame
     void Update()
     {
+        
     }
 }
