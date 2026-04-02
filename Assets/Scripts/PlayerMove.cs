@@ -4,7 +4,7 @@ public class PlayerMove : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     RaycastHit2D hit; //2d레이캐스트 선언
-    private Rigidbody2D rb;
+    private Rigidbody2D rb; 
     private Animator anim;
 
     //플래이어 능력치
@@ -25,6 +25,8 @@ public class PlayerMove : MonoBehaviour
     void Move() //x축 키입력과 x축 이동과 x,y 최대 속도 조절
     {
         float h = Input.GetAxisRaw("Horizontal"); //키입력
+        Debug.Log(h);
+
         rb.AddForce(Vector2.right * h * PlayerSpeed, ForceMode2D.Impulse); //키 입력에 따른 이동
         //x축 최대속도
         if (rb.linearVelocity.x > MaxSpeed)
@@ -52,6 +54,7 @@ public class PlayerMove : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
+
         if (Jumping) //점프 실행
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0);
