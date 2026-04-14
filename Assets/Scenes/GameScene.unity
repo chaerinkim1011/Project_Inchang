@@ -1769,7 +1769,7 @@ GameObject:
   - component: {fileID: 967501276}
   - component: {fileID: 967501275}
   m_Layer: 5
-  m_Name: AugmentList
+  m_Name: ArgumentList
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
