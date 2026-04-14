@@ -10,8 +10,8 @@ public class PlayerMove : MonoBehaviour
     //플래이어 능력치
     public float PlayerSpeed = 1f;
     public float PlayeJump = 15f;
-    private float MaxSpeed = 10f;
-    private float MaxYSpeed = 50f;
+    public float MaxSpeed = 10f;
+    public float MaxYSpeed = 50f;
     
 
     //플래이어 감지 관련
