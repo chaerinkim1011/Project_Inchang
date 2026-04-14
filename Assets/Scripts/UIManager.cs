@@ -34,13 +34,13 @@ public class UIManager : MonoBehaviour
             Time.timeScale = 0;
         }
 
-        if (!isAugmentListOpen && Input.GetButtonDown("AugmentList"))
+        if (!isAugmentListOpen && Input.GetButtonDown("ArgumentList"))
         {
             isAugmentListOpen = true;
             augmentList.SetActive(true);
             Time.timeScale = 0;
         }
-        else if(isAugmentListOpen && Input.GetButtonDown("AugmentList"))
+        else if(isAugmentListOpen && Input.GetButtonDown("ArgumentList"))
         {
             isAugmentListOpen = false;
             augmentList.SetActive(false);
