@@ -44,7 +44,13 @@ public class PlayerMove : MonoBehaviour
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, MaxYSpeed); 
         }
     }
-    
+
+    void dash()
+    {
+
+    }
+
+
     void Start()
         //리지드 바디 선언
     {
@@ -54,7 +60,7 @@ public class PlayerMove : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
-
+        dash();
         if (Jumping) //점프 실행
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0);
@@ -75,8 +81,8 @@ public class PlayerMove : MonoBehaviour
 
         IsGrounded = (leftHit.collider != null || RightHit.collider != null);
 
-        Debug.DrawRay(Raycastleft, Vector2.down * RaycastDistance, Color.red);
-        Debug.DrawRay(RaycastRight, Vector2.down * RaycastDistance, Color.blue);
+        //Debug.DrawRay(Raycastleft, Vector2.down * RaycastDistance, Color.red);
+        //Debug.DrawRay(RaycastRight, Vector2.down * RaycastDistance, Color.blue);
     }
     // Update is called once per frame
     void Update()
@@ -90,7 +96,14 @@ public class PlayerMove : MonoBehaviour
         {
             Jumping = true;
         }
-        Debug.Log(IsGrounded);
-        
+        if (Input.GetButtonUp("Jump"))
+        {
+            if (rb.linearVelocity.y > 0)
+            {
+                rb.linearVelocity = new Vector2(rb.linearVelocity.normalized.x, rb.linearVelocity.y * 0.5f);
+            }
+        }
+
+
     }
 }
